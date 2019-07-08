@@ -45,17 +45,10 @@ let answerThree = $("#answerthree");
 let answerFour = $("#answerfour");
 let timeOut = $("#time-up");
 let start = $("#start")
-//initial text//
 //timer on page//
 function run() {
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000)
-}
-
-function restart() {
-    clearInterval(intervalId);
-    intervalId = setInterval(decrement, 1000)
-    seconds;
 }
 
 function decrement() {
@@ -90,16 +83,23 @@ function displayQuestion() {
 }
 
 function nextQuestion() {
-    run()
     count++
+    $("#statement").text("");
     $("#question").text(questions[count]);
-    for (let j = 0; j < quiz.length; j++) {
-        if (count === quiz.length) {
+        if (count === 5) {
             stop()
+            $("#time-remaining").remove()
             $("#start-over").text("Start Over?");
-            count = 0
+            $("#answerone").remove()
+            $("#answertwo").remove()
+            $("#answerthree").remove()
+            $("#answerfour").remove()
+            $("#question").remove()
+            $("#correctanswerdiv").text("correct Answers: " + correctAnswers)
+            $("#incorrectanswerdiv").text("incorrect Answers: " + incorrectAnswers)
         }
-    }}
+    }
+
 function displayAnswers() {
     $("#answerone").text(quiz[count].answers[0]);
     $("#answertwo").text(quiz[count].answers[1]);
@@ -108,15 +108,14 @@ function displayAnswers() {
 }
 //push correctAnswers to its own array//
 for (let k = 0; k < quiz.length; k++) {
-    correctAnswersArray.push(quiz[i].correctAnswer)
+    correctAnswersArray.push(quiz[k].correctAnswer)
     console.log(correctAnswersArray)
 }
 //onclick//
 $("#answerone").on("click", function() {
-    restart()
     nextQuestion()
     displayAnswers()
-            if (answerOne === quiz[i].correctAnswer) {
+            if (answerOne === quiz[count].correctAnswer) {
                 $("#statement").text("Well Done!!!")
                 correctAnswers++;
             }
@@ -128,10 +127,9 @@ $("#answerone").on("click", function() {
     )
 
 $("#answertwo").on("click", function() {
-    restart()
     nextQuestion()
     displayAnswers()
-            if (answerTwo === quiz[i].correctAnswer) {
+            if (answerTwo === quiz[count].correctAnswer) {
                 $("#statement").text("Well Done!!!")
                 correctAnswers++;
             }
@@ -144,10 +142,9 @@ $("#answertwo").on("click", function() {
 
 
 $("#answerthree").on("click", function() {
-    restart()
     nextQuestion()
     displayAnswers()
-            if (answerThree === quiz[i].correctAnswer) {
+            if (answerThree === quiz[count].correctAnswer) {
                 $("#statement").text("Well Done!!!")
                 correctAnswers++;
             }
@@ -159,11 +156,10 @@ $("#answerthree").on("click", function() {
         )
 
 $("#answerfour").on("click", function() {
-    restart()
     nextQuestion()
     displayAnswers()
-            if (answerFour === quiz[i].correctAnswer) {
-                $("#statement").text("Well Done!!!")
+            if (answerFour === quiz[count].correctAnswer) {
+                $("#statement").text("Correct!!!")
                 correctAnswers++;
             }
             else {
@@ -172,7 +168,7 @@ $("#answerfour").on("click", function() {
                 }
             }
         )
-    
+//reset function//
 
 
 
