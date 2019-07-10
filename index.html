@@ -11,43 +11,65 @@
 </head>
 <body>
    <header id="header">
-       <h1>Trivia Game</h1>
+       <h1>Animal Trivia Game</h1>
    </header>
 
-   <button id="startbtn" type="button" class="btn btn-primary">Start</button>
+   <div class="container">
+        <div class="row">
+          <div class="col-2">
+          </div>
+          <div class="col-8">
+              <div class="trivia">
+                <button id="startbtn" type="button" class="btn btn-primary">Start</button>
 
-   <div id="time-remaining">
-   </div>
+                <div id="directions">
+                 <p>Answer each question before the timer hits 0.<br> You will see how many correct answers you have at the end of the game.<br> There are ten questions in total.</p>
+                </div>
+             
+                <div id="time-remaining">
+                </div>
+             
+                <div id="time-up">    
+                </div>
+             
+                <div id="statement">   
+                </div>
+             
+                <div id="question">   
+                </div>
 
-   <div id="time-up">    
-   </div>
+                <div id="answerone">
+                </div>
 
-   <div id="statement">   
-   </div>
+                <div id="answertwo">
+                </div>
 
-   <div id="question">   
-   </div>
+                <div id="answerthree">
+                </div>
 
-   <button id="answerone">
-   </button>
+                <div id="answerfour">
+                </div>
+                
+                <img id="image">
+            
 
-   <button id="answertwo">
-    </button>
-
-    <button id="answerthree">
-    </button>
-
-    <button id="answerfour">
-    </button>
-
-    <div id="correctanswerdiv">
-    </div>
-
-    <div id="incorrectanswerdiv">
-    </div>
-    
-   <button id="start-over">
-   </button>
+                 <div id="results">
+                </div>
+             
+                 <div id="correctanswerdiv">
+                 </div>
+             
+                 <div id="incorrectanswerdiv">
+                 </div>
+                 
+                <button id="start-over" type="button" class="btn btn-primary">
+                </button>
+            </div>
+          </div>
+          <div class="col-2">
+          </div>
+        </div>
+      </div>
 
    <script src="assets/javascript/app.js" type="text/javascript"></script>
 </body>

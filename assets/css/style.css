@@ -1,0 +1,135 @@
+header {
+    text-align: center;
+    color: rgb(255, 94, 0);
+    background: rgb(65, 65, 224, 0.4);
+    width: 100%;
+    height: 50px;
+    margin-bottom: 150px;
+}
+
+body {
+    background-image: url(../images/africa-2265801_1280.jpg)
+}
+
+.trivia {
+    background: rgb(255, 255, 255, 0.6);
+    width: 100%;
+    height: 470px;
+    padding-top: 0px;
+    border: groove 3px orange;
+
+}
+
+#startbtn {
+    left: 260px;
+    position: relative;
+    font-size: 25px;
+    color: rgb(255, 94, 0);
+    top: 250px;
+    width: 30%;
+}
+
+#directions {
+    color: blue;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+    position: relative;
+    bottom: 20px;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+#question {
+    text-align: center;
+    color: blue;
+    font-weight: bold;
+    font-size: 20px;
+    position: relative;
+    top: 120px;
+}
+
+#answerone {
+    position: relative;
+    top: 301px;
+    left: 170px;
+}
+
+#answertwo {
+    top: 263px;
+    left: 267px;
+    position: relative;
+}
+
+#answerthree {
+    top: 225px;
+    left: 367px;
+    position: relative;
+}
+
+#answerfour {
+    top: 187px;
+    position: relative;
+    left: 467px;
+}
+
+#time-remaining {
+    text-align: center;
+    color: rgb(49, 49, 253);
+    font-weight: bold;
+    font-size: 23px;
+    top: 5px;
+    position: relative;
+}
+
+#time-up {
+    text-align: center;
+    color: blue;
+    font-size: 30px;
+}
+
+#statement {
+    text-align: center;
+    color: blue;
+}
+
+#correctanswerdiv {
+    text-align: center;
+    color: blue;
+    font-size: 25px;
+    top: 150px;
+    position: relative;
+}
+
+#incorrectanswerdiv {
+    text-align: center;
+    color: blue;
+    font-size: 25px;
+    top: 150px;
+    position: relative;
+}
+
+#image {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    left: 265px;
+    bottom: 5px;
+    top: 10px;
+}
+
+#results {
+    text-align: center;
+    position: relative;
+    font-size: 35px;
+    font-weight: bold;
+    border-bottom: 4px solid blue;
+    top: 70px;
+    color: rgb(255, 94, 0);
+}
+
+#start-over {
+    position: relative;
+    top: 200px;
+    left: 317px;
+}
