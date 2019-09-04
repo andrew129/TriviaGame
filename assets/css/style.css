@@ -14,18 +14,18 @@ body {
 .trivia {
     background: rgb(255, 255, 255, 0.6);
     width: 100%;
-    height: 470px;
-    padding-top: 0px;
+    height: 380px;
     border: groove 3px orange;
-
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 #startbtn {
-    left: 260px;
+    left: 230px;
     position: relative;
     font-size: 25px;
     color: rgb(255, 94, 0);
-    top: 250px;
+    top: 240px;
     width: 30%;
 }
 
@@ -46,31 +46,32 @@ body {
     font-weight: bold;
     font-size: 20px;
     position: relative;
-    top: 120px;
+    top: 20px;
+
 }
 
 #answerone {
-    position: relative;
-    top: 301px;
-    left: 170px;
+    position: absolute;
+    top: 320px;
+    right: 500px;
 }
 
 #answertwo {
-    top: 263px;
-    left: 267px;
-    position: relative;
+    top: 320px;
+    right: 400px;
+    position: absolute;
 }
 
 #answerthree {
-    top: 225px;
-    left: 367px;
-    position: relative;
+    top: 320px;
+    right: 300px;
+    position: absolute;
 }
 
 #answerfour {
-    top: 187px;
-    position: relative;
-    left: 467px;
+    top: 320px;
+    position: absolute;
+    right: 193px;
 }
 
 #time-remaining {
@@ -82,15 +83,28 @@ body {
     position: relative;
 }
 
+#image {
+    position: absolute;
+    bottom: 100px;
+    left: 280px;
+}
+
 #time-up {
     text-align: center;
     color: blue;
-    font-size: 30px;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 #statement {
     text-align: center;
     color: blue;
+    position: absolute;
+    top: 150px;
+    left: 250px;
+    font-size: 40px;
+    font-weight: bold;
+
 }
 
 #correctanswerdiv {
@@ -107,15 +121,6 @@ body {
     font-size: 25px;
     top: 150px;
     position: relative;
-}
-
-#image {
-    width: 200px;
-    height: 200px;
-    position: relative;
-    left: 265px;
-    bottom: 5px;
-    top: 10px;
 }
 
 #results {

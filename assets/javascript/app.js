@@ -4,7 +4,8 @@ let incorrectAnswers = 0
 let count = 0
 let seconds;
 let questions = [];
-let images = [];
+let imgDisplay = $('<img>').addClass('ans-img mx-auto');
+// let images = [];
 let answers = [];
 let correctAnswersArray = [];
 let quiz = [
@@ -83,12 +84,9 @@ let timeRemaining = $("#time-remaining");
 let questionHtml = $("#question");
 let timeOut = $("#time-up");
 let start = $("#start")
-//initial
-$("#image").hide();
 //timer on page//
 function run() {
     seconds = 10;
-    $("#time-up").text("");
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000)
 }
@@ -100,7 +98,7 @@ function decrement() {
         remover();
         delay()
         stop() 
-        $("#time-up").text("Time's Up");
+        $("#time-up").text("Time's Up!!!");
         $("#time-remaining").text("")
     }
 }
@@ -109,16 +107,16 @@ function stop() {
     clearInterval(intervalId);
 }
 //start button//
-$("#startbtn").on("click", run)
 
 $("#startbtn").on("click", function() {
-    $("#start-over").remove();
+    $('#results').empty()
+    run()
+    $("#start-over").empty();
     $("#startbtn").remove();
+    $("#directions").empty()
     displayQuestion();
     displayAnswers()
     displayImages();
-    nextImage();
-    $("#directions").text("");
 })
 //questions and answers on page//
 function displayQuestion() {
@@ -130,34 +128,37 @@ function displayQuestion() {
 }
 
 function displayImages() {
-    for (let i = 0; i < quiz.length; i++) {
-        images.push(quiz[i].image);
-        $("#image").attr("src", images[count]);
-    }
+    imgDisplay.attr("src", quiz[count].image);
+    $('#image').append(imgDisplay)
 }
 
 function nextQuestion() {
     run()
     $("#time-remaining").text("time remaining: " + seconds)
-    $("#statement").hide();
-    $("time-up").text("");
+    $("#statement").empty();
+    $("#time-up").text("");
     count++
     $("#question").text(questions[count]);
-        if (count === 10) {
-            stop()
-            $("#time-remaining").hide()
-            $("#start-over").text("Start Over?");
-            $("#answerone").remove()
-            $("#answertwo").remove()
-            $("#answerthree").remove()
-            $("#answerfour").remove()
-            $("#question").hide()
-            $("#statement").hide()
-            $("#correctanswerdiv").text("correct Answers: " + correctAnswers)
-            $("#incorrectanswerdiv").text("incorrect Answers: " + incorrectAnswers)
-            $("#results").text("results");
-        }
+    console.log(count)
+    if (count === 10) {
+        stop()
+        $("#time-remaining").empty()
+        let startOver = $('<button>')
+        startOver.text('Start Over?')
+        startOver.attr('class', 'btn btn-primary')
+        $('#start-over').append(startOver)
+        $("#answerone").empty()
+        $("#answertwo").empty()
+        $("#answerthree").empty()
+        $("#answerfour").empty()
+        $("#question").empty()
+        $("#statement").empty()
+        $("#correctanswerdiv").text("correct Answers: " + correctAnswers)
+        $("#incorrectanswerdiv").text("incorrect Answers: " + incorrectAnswers)
+        $("#results").text("results");
+        $('#image').empty()
     }
+}
 
 function displayAnswers() {
     let answerOne = $("<button>")
@@ -179,21 +180,21 @@ function displayAnswers() {
 }
 
 function remover() {
+    $('#directions').text("");
+    $('#question').empty()
+    $('#time-remaining').empty()
+    $('#image').empty()
     $("#answerone").empty();
     $("#answertwo").empty();
     $("#answerthree").empty();
     $("#answerfour").empty();
 }
 
-function nextImage() {
-    $("#image").attr("src", images[count]);
-}
-
 //delay functions//
 function delay() {
     setTimeout(nextQuestion, 1000)
     setTimeout(displayAnswers, 1000)
-    setTimeout(nextImage, 1000)
+    setTimeout(displayImages, 1000)
 }
 //push correctAnswers to its own array//
 for (let k = 0; k < quiz.length; k++) {
@@ -205,7 +206,6 @@ $("#answerone").on("click", function() {
     delay()
     remover()
     if (correctAnswersArray.includes(quiz[count].answers[0])) {
-        console.log('this is right')
         $("#statement").text("Correct!!!")
         correctAnswers++;
     }
@@ -214,51 +214,50 @@ $("#answerone").on("click", function() {
         $("#statement").text("You're Wrong")
         incorrectAnswers++;
     }
-    $("#image").remove()
+    $("#image").empty()
 });
 
 $("#answertwo").on("click", function() {
     delay()
     remover()
-            if (correctAnswersArray.includes(quiz[count].answers[1])) {
-                $("#statement").text("Correct!!!")
-                correctAnswers++;
-            }
-            else {
-                $("#statement").text("You're Wrong")
-                incorrectAnswers++;
-                }
-            }
-        )
+    if (correctAnswersArray.includes(quiz[count].answers[1])) {
+        $("#statement").text("Correct!!!")
+        correctAnswers++;
+    }
+    else {
+        $("#statement").text("Wrong Answer")
+        incorrectAnswers++;
+    }
+    $('#image').empty()
+});
 
 $("#answerthree").on("click", function() {
     delay()
     remover()
-            if (correctAnswersArray.includes(quiz[count].answers[2])) {
-                $("#statement").text("Correct!!!")
-                correctAnswers++;
-
-            }
-            else {
-                $("#statement").text("You're Wrong")
-                incorrectAnswers++;
-                }
-            }
-        )
+    if (correctAnswersArray.includes(quiz[count].answers[2])) {
+        $("#statement").text("Correct!!!")
+        correctAnswers++;
+    }
+    else {
+        $("#statement").text("Wrong Answer")
+        incorrectAnswers++;
+    }
+    $('#image').empty()
+});
 
 $("#answerfour").on("click", function() {
     delay()
     remover()
-            if (correctAnswersArray.includes(quiz[count].answers[3])) {
-                $("#statement").text("Correct!!!")
-                correctAnswers++;
-            }
-            else {
-                $("#statement").text("You're Wrong")
-                incorrectAnswers++;
-                }
-            }
-        )
+    if (correctAnswersArray.includes(quiz[count].answers[3])) {
+        $("#statement").text("Correct!!!")
+        correctAnswers++;
+    }
+    else {
+        $("#statement").text("Wrong Answer")
+        incorrectAnswers++;
+    }
+    $('#image').empty()
+});
 //reset function//
 function reset() {
     run()
