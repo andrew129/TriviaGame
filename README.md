@@ -1,5 +1,9 @@
 # TriviaGame
 
+## Preview
+
+![Preview](https://github.com/andrew129/triviagame/blob/master/assets/images/trivia.png?raw=true)
+
 ## About
 
 Test your knowledge in this trivia game about animals.  See how many you can get correct.
